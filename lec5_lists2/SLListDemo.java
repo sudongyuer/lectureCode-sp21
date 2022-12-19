@@ -9,14 +9,18 @@ public class SLListDemo {
         }
     }
 
-    private IntNode first;
+    private IntNode sentinel;
+
+    public int size;
 
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        size +=1;
+        sentinel.next = new IntNode(x, sentinel.next);
     }
 
     public void addLast(int x) {
-        IntNode p = first;
+        size +=1;
+        IntNode p = sentinel;
 
         while (p.next != null) {
             p = p.next;
@@ -24,8 +28,13 @@ public class SLListDemo {
         p.next = new IntNode(x, null);
     }
 
+    public SLListDemo(){
+       sentinel = new IntNode(63,null);
+       size = 0;
+    }
+
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     /**
@@ -45,16 +54,17 @@ public class SLListDemo {
      * Returns the size of the list using recursion.
      */
     public int size() {
-        return size(first);
+        return size;
+//        return size(first);
     }
 
-    public int size(IntNode p) {
-        if (p.next == null) {
-            return 1;
-        }
-        p = p.next;
-        return 1 + size(p);
-    }
+//    public int size(IntNode p) {
+//        if (p.next == null) {
+//            return 1;
+//        }
+//        p = p.next;
+//        return 1 + size(p);
+//    }
 
     public static void main(String[] args) {
         SLListDemo L = new SLListDemo();
