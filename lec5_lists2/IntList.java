@@ -1,5 +1,3 @@
-package lists2;
-
 public class IntList {
 	public int first;
 	public IntList rest;
@@ -43,4 +41,4 @@ public class IntList {
 
 		System.out.println(L.get(100));
 	}
-} 
+}
